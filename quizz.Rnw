@@ -1,0 +1,21 @@
+\documentclass{article}
+
+\begin{document}
+
+<<chunk1,echo=FALSE>>=
+
+library("rvest")
+pop <- html("http://en.wikipedia.org/wiki/Ebola_virus_epidemic_in_West_Africa")
+df <- html_table(html_nodes(pop, "table")[[2]])
+
+T_C<-df[10,2]
+T_D<-df[10,3]
+U_C<-df[6,2]
+U_D<-df[6,3]
+@
+
+ The World Health Organization (WHO) and respective governments have reported a total of\Sexpr{T_C} suspected cases and \Sexpr{T_D} deaths, though the WHO believes that this substantially understates the magnitude of the outbreak. In the United States there has been \Sexpr{U_C} reported cases and \Sexpr{U_D} deaths.
+
+
+
+\end{document}

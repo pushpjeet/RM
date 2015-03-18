@@ -1,0 +1,31 @@
+<html>
+
+<head>
+<title>Title</title>
+</head>
+
+<body>
+
+<p></p>
+
+<!--begin.rcode, echo=FALSE
+library("rvest")
+pop <- html("http://en.wikipedia.org/wiki/List_of_people_who_died_climbing_Mount_Everest")
+df1 <- html_table(html_nodes(pop, "table")[[1]], fill = TRUE )
+a=grep("May",df1[,2])
+
+end.rcode-->
+
+<p>You can also embed plots, for example:</p>
+
+<!--begin.rcode fig.width=7, fig.height=6, echo=FALSE
+library(ggplot2)
+months <- c("Jan","Feb","Mar","April","May","Jun","July","Aug","Sept","Oct","Nov","Dec")
+total.deaths <- c(1,35.7,8.5,3.4,6.6,6.3,1.5,0.6,0,0,0,0)
+df2 = data.frame(months,total.deaths)
+g<-ggplot(df2, aes(x=months, y=total.deaths, fill=months))
+g+geom_bar(stat="identity")
+end.rcode-->
+
+</body>
+</html>
